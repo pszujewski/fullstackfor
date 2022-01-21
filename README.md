@@ -82,11 +82,26 @@ pm2 startup
 
 ### ufw and Firewall
 
-ufw stands for uncomplicated firewall.
+ufw stands for uncomplicated firewall. Do `less /etc/services` to see all available ports.
+
+Run `nmap` to see all the ports open at a specific IP address
+
+```bash
+sudo apt install nmap
+nmap YOUR_SERVER_IP_ADDRESS
+# For more info...
+nmap -sV YOUR_SERVER_IP_ADDRESS 
+```
+
+Hackers run port scans over the entire internet, so it's a good idea to use `ufw` to close off ports you don't need opened to the whole internet. Ports allow you to dial into a specific mode of communication. There are TCP ports, UDP ports, FTP ports, SSH ports... Different ports correspond to different services (hence `/etc/services`). Port 80 is the default http port.
 
 ### VIM
 
 `vi` command will open a file in VIM. Enter `ESC` to enter a command. Enter `:` to make VIM accept a command. `:q` will quit VIM. `:wq` will write the file and quit. Enter `i` will in command mode to enter INSERT mode, so you can edit a file.  
+
+### HTTP
+
+A note on Cookies. The web is stateless. Cookies allow you to add a sort of state to your requests, since cookies are automatically attached as a header to every request sent client to server.
 
 ### HTTPS cert and http2
 
