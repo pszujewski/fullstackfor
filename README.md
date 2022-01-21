@@ -80,6 +80,8 @@ pm2 start app.js
 pm2 startup
 ```
 
+`pm2` adds a process to be started by the system daemon (systemd).
+ 
 ### ufw and Firewall
 
 ufw stands for uncomplicated firewall. Do `less /etc/services` to see all available ports.
@@ -137,4 +139,21 @@ listen 443 http2 ssl; # managed by Certbot
 Then reload nginx: `$ sudo service nginx reload`
 
 A note on http3: Http3 is technically out and it runs on UDP instead of TCP. UDP is different from TCP in that is just "blasts" data packets rather than going through many handshakes to be sure no packets are lost. This is because the internet is a utility staple at this point and connections are much much more reliable than say the dial-up days. Packets are much less likely to be lost between clients and server.
+
+"X-" is usually used to denote a custom header in http.
+
+### Containers
+
+Kubernetes is for orchestration of containers, whereas Docker is just a Container. Orchestration is about distributing your containers over servers. If you have several Containers and you know roughly how much RAM and Hard drive space they use, you can evenly distribute them over your servers. 
+
+### Load Balancers
+
+Install `htop` to view running processes on your server. It's like `top`, which should you processes, but it shows in more detail CPU load, memory consumption, etc.
+
+Nginx also will actually handle load balancing for you. It can be configured to do so if you have multiple servers. 
+
+### Closing note
+
+You could script a lot of the server and nginx setup stuff. It would be a good challenge to do that.
+
 
